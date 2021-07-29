@@ -26,16 +26,15 @@ function handleData(data){
     likeButton.addEventListener('click', increaseLikes)
 
     function increaseLikes(){
-        likes.innerText = `${data.likes+1} likes`
-        handleData()
+        likes.innerText = `${data.likes++} likes`
     }
 
-    // form.addEventListener('submit', e => {
-    //     e.preventDefault()
-    //     const input = document.querySelector('input')
-    //     const commentText = e.target.comment.value
-    //     const newComment = document.createElement('li')
-    //     newComment.innerText = commentText
-    //     input.append(newComment)
-    // })
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        const commentText = e.target.comment.value
+        const newComment = document.createElement('li')
+        newComment.innerText = commentText
+        comments.append(newComment)
+        e.target.reset()
+    })
 }
